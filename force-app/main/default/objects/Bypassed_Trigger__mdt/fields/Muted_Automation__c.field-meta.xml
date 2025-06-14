@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Muted_Automation__c</fullName>
+    <externalId>false</externalId>
+    <fieldManageability>DeveloperControlled</fieldManageability>
+    <label>Object</label>
+    <referenceTo>Bypassed_Automation__mdt</referenceTo>
+    <relationshipLabel>Bypassed Triggers</relationshipLabel>
+    <relationshipName>Muted_Triggers</relationshipName>
+    <required>true</required>
+    <type>MetadataRelationship</type>
+    <unique>false</unique>
+</CustomField>
