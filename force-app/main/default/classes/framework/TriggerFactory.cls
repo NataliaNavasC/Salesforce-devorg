@@ -1,5 +1,11 @@
 public without sharing class TriggerFactory {
-    
+
+    /**
+     * Dynamically resolves and instantiates the dispatcher class corresponding to the provided SObject.
+     * The method uses the object's SObjectType to build the expected dispatcher class name
+     * following the convention: {SObjectName}Dispatcher. It then attempts to locate the class
+     * via Type.forName() and instantiate it using newInstance(). Factory pattern.
+    */
     public static void createTriggerDispatcher(Schema.sObjectType soType){
         ITriggerDispatcher dispatcher = getTriggerDispatcher(soType);
         if(dispatcher == null){
@@ -12,7 +18,7 @@ public without sharing class TriggerFactory {
 
     private static ITriggerDispatcher getTriggerDispatcher(Schema.sObjectType soType){
         String originalTypeName = soType.getDescribe().getName();
-        String dispatcherTypeName = String.normalizeObjectName(originalTypeName,true) + 'Dispatcher';
+        String dispatcherTypeName = StringUtils.normalizeObjectName(originalTypeName,true) + 'Dispatcher';
         Type obType = Type.forName(dispatcherTypeName);
         ITriggerDispatcher dispatcher = (obType == null) ? null : (ITriggerDispatcher) obType.newInstance(); 
         return dispatcher;

@@ -5,8 +5,8 @@ trigger ContactTrigger on Contact (
     after insert,
     after update,
     after delete) {
-    //TriggerFactory.createTriggerDispatcher(Contact.sObjectType);
-    if(Trigger.isBefore){
+    TriggerFactory.createTriggerDispatcher(Contact.sObjectType);
+    /*if(Trigger.isBefore){
         if(Trigger.isInsert){
             System.debug('before insert');
             ContactTriggerHandler.setWelcomeMessage(Trigger.new);
@@ -15,5 +15,5 @@ trigger ContactTrigger on Contact (
         if(Trigger.isInsert){
             System.debug('after insert');
         }
-    }
+    }*/
 }

@@ -31,27 +31,27 @@ public without sharing class TriggerParameters {
         Boolean isUnd,
         Boolean isExc
     ) {
-        this.old = oldList;
-        this.new = nlist;
+        this.oldList = oList;
+        this.newList = nlist;
         this.oldMap = oMap;
         this.newMap = nMap;
-        this.triggerObject = UtilityClass.getSObjectTypeName(
+        this.triggerObject = ApexUtils.getSObjectTypeName(
             (this.oldList != null && this.oldList.size()>0) ? this.oldList[0] : this.newList[0]
         );
         if(isBef && isIns){
-            tEvent = Trigger.beforeInsert;
+            tEvent = TriggerEvent.beforeInsert;
         } else if (isBef && isUpd){
-            tEvent = Trigger.beforeUpdate;
+            tEvent = TriggerEvent.beforeUpdate;
         } else if(isBef && isDel){
-            tEvent = Trigger.beforeDelete;
+            tEvent = TriggerEvent.beforeDelete;
         } else if(isAft && isIns){
-            tEvent = Trigger.afterInsert;
+            tEvent = TriggerEvent.afterInsert;
         } else if(isAft && isUpd){
-            tEvent = Trigger.afterUpdate;
+            tEvent = TriggerEvent.afterUpdate;
         } else if(isAft && isDel){
-            tEvent = Trigger.afterDelete;
+            tEvent = TriggerEvent.afterDelete;
         } else if(isAft && isUnd){
-            tEvent = Trigger.afterUndelete;
+            tEvent = TriggerEvent.afterUndelete;
         }
         isExecuting = isExc;
 
