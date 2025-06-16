@@ -1,6 +1,6 @@
 
 // This class implements the ITriggerDispatcher and acts as an adapter to avoid implementing all the ITriggerDispatcher methods.
-public virtual class TriggerDispatcherBase {
+public virtual class TriggerDispatcherBase implements ITriggerDispatcher {
 
     public static ITriggerHandler beforeInsertHandler;
     public static ITriggerHandler beforeUpdateHandler;
@@ -16,25 +16,25 @@ public virtual class TriggerDispatcherBase {
     public virtual void bulkAfter(){
     }
 
-    public virtual void beforeInsert(){
+    public virtual void beforeInsert(TriggerParameters tp){
     }
 
-    public virtual void beforeUpdate(){
+    public virtual void beforeUpdate(TriggerParameters tp){
     }
 
-    public virtual void beforeDelete(){
+    public virtual void beforeDelete(TriggerParameters tp){
     }
 
-    public virtual void afterInsert(){
+    public virtual void afterInsert(TriggerParameters tp){
     }
 
-    public virtual void afterUpdate(){
+    public virtual void afterUpdate(TriggerParameters tp){
     }
 
-    public virtual void afterDelete(){
+    public virtual void afterDelete(TriggerParameters tp){
     }
 
-    public virtual void afterUndelete(){
+    public virtual void afterUndelete(TriggerParameters tp){
     }
 
     public virtual void andFinally(){

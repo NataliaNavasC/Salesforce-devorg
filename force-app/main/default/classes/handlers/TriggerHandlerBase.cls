@@ -7,7 +7,7 @@ public without sharing abstract class TriggerHandlerBase implements ITriggerHand
     public abstract void mainEntry(TriggerParameters tp);
 
     // Called for the subsequent times in the same execution context
-    public virtual void inProgressEntry(TriggerParameters tp);
+    public virtual void inProgressEntry(TriggerParameters tp){ }
 
     public virtual void updateObjects() {
         if(!sObjectsToUdate.isEmpty()) {

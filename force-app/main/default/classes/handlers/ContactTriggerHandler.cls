@@ -1,16 +1,14 @@
-public without sharing class ContactTriggerHandler {
+public without sharing class ContactTriggerHandler extends TriggerHandlerBase{
 
     public override void mainEntry(TriggerParameters tp){
-        TriggerEvent tEvent = tp.tEvent;
-
-        if (tEvent == TriggerParametters.TriggerEvent.beforeInsert) {
+        if (tp.tEvent == TriggerParameters.TriggerEvent.beforeInsert) {
             handleBeforeInsert(tp.newList);
-        } else if (tEvent == TriggerParametters.TriggerEvent.beforeUpdate) {
-            setWelcomeMessage(tp.newList);
-        } else if (tEvent == TriggerParametters.TriggerEvent.afterInsert) {
-            setWelcomeMessage(tp.newList);
-        } else if (tEvent == TriggerParametters.TriggerEvent.afterUpdate) {
-            setWelcomeMessage(tp.newList);
+        } else if (tp.tEvent == TriggerParameters.TriggerEvent.beforeUpdate) {
+            handleBeforeUpdate(tp.newList);
+        } else if (tp.tEvent == TriggerParameters.TriggerEvent.afterInsert) {
+            handleAfterInsert(tp.newList);
+        } else if (tp.tEvent == TriggerParameters.TriggerEvent.afterUpdate) {
+            handleAfterUpdate(tp.newList);
         } 
     }
 

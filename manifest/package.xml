@@ -7,6 +7,7 @@
         <members>Bypassed_Workflow__mdt</members>
         <members>Test_Obj__c</members>
         <members>Test_Obj2__c</members>
+        <members>Animal__c</members>
         <name>CustomObject</name>
     </types>
     <version>59.0</version>
